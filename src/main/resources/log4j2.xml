@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <JSONLayout complete="false" compact="true" eventEol="true" stacktraceAsString="true" properties="true">
+                <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSSZ}"/>
+            </JSONLayout>
+        </Console>
+    </Appenders>
+
+    <!-- This log-config is used for all environments -->
+    <!-- If you need environment specific logging, add log4j2-{environment}.xml and update application-{environment}.xml -->
+
+    <Loggers>
+
+        <Logger name="org.apache" level="warn" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="kafka" level="warn" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="state" level="error" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="io.confluent" level="warn" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="io.micrometer" level="warn" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+</Configuration>
+

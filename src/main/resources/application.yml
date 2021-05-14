@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: sb-gp-ms-template # <<replace-me>>
+
+kafka:
+  applicationId: ${spring.application.name}
+  bootstrap-servers: ${KAFKA_BROKERS}
+  schema-registry-url: ${SCHEMA_REGISTRY_URL}
+
+topic:
+  foo: "foo"
+
+server:
+  port: 8080
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
